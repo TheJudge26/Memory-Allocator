@@ -8,8 +8,8 @@
 #include <assert.h>
 #include <errno.h>
 
-#define packed __attribute__((__packed__));
-#define unused __attribute__((__unused__));
+#define packed __attribute__((__packed__))
+#define unused __attribute__((__unused__))
 
 typedef unsigned char int8;
 typedef unsigned short int int16;
@@ -19,14 +19,11 @@ typedef unsigned _BitInt(128) int128;
 typedef void heap;
 typedef int32 word;
 
-struct packed s_header{
-    
-    word w:30;
-    bool alloced:1;
-    bool unused reserved:1;
-
-
-}
+typedef struct packed {
+    word w: 30;        
+    word alloced: 1;   
+    unused word reserved: 1;
+} header;
 
 #define $1 (int8 *)
 #define $2 (int16)
@@ -38,4 +35,4 @@ struct packed s_header{
 #define $v (void *)
 #define $h (header *)
 
-int main(int,char**)
+// int main(int,char**)
