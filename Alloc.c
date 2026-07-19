@@ -4,9 +4,9 @@ extern heap *memspace;
 
 void *mkalloc(word words, header *hdr){
     void *ret, *bytesin;
-    words wordsin;
+    word wordsin;
 
-    bytesin = (hdr - memspace);
+    bytesin = $i ($v(($v hdr) - memspace));
     wordsin = (((words)bytesin)/4)+1;
     if (words > (maxwords-wordsin))
         reterr ErrNoMem;

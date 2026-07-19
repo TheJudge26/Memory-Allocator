@@ -40,6 +40,6 @@ typedef struct packed {
 
 #define reterr(x) errno = (x); return $v 0
 
-void *mkalloc(word,hdr*);
+void *mkalloc(word,hearder*);
 void *alloc(int32);
 // int main(int,char**)
